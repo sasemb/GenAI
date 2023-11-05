@@ -1,6 +1,7 @@
 import streamlit as st
 import streamlit.components.v1 as components
 from st_pages import add_page_title, hide_pages
+add_page_title()
 st.set_page_config(
   page_title="From Selfie to Sketchie", 
   page_icon="🤩", 
