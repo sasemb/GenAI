@@ -1,8 +1,8 @@
 import streamlit as st
 import streamlit.components.v1 as components
 from st_pages import show_pages, Page, hide_pages
-Page("2_genai.py", "GenAI")
-hide_pages(["GenAI"])
+#Page("2_genai.py", "GenAI")
+hide_pages([("2_genai.py", "GenAI")])
 st.set_page_config(
   page_title="From Selfie to Sketchie", 
   page_icon="🤩", 
