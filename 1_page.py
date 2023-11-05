@@ -15,7 +15,7 @@ st.set_page_config(
 st.title('From Selfie to :rainbow[Sketchie] ')
 st.subheader("Transform Your beautiful selfies to sketchies🤩")
 st.image('mp.jpg' , width=256)
-hide_pages(["2_genai"])
+hide_pages(["pages/2_genai"])
 #st.sidebar.markdown(f"## 2_genai")
 #st.sidebar.markdown("This page is hidden.")
 stripe_js = """<script async
