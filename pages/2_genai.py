@@ -29,15 +29,15 @@ if image is not None:
     # right = (width + 512) / 2
     # bottom = (height + 512) / 2
     # cropped_image = img.crop((left, top, right, bottom))
-    img1 = img1.resize((356, 356))
+    img1 = img1.resize((256, 256))
     answers = stability_api.generate("Upload a real personality image, and use the Stable Diffusion Model to transform it into a highly detailed and realistic sketch. The sketch should capture the essence and character of the person in the uploaded image while maintaining a strong artistic quality. The final output should resemble a hand-drawn portrait with shading, texture, and fine details. Please prioritize creating a black and white sketch, but consider offering an option to adjust the level of stylization or introduce subtle color accents if desired. The output should be of the highest possible quality",
     init_image=img1, 
     start_schedule=0.6, 
     seed=12345,
     steps=50,
     cfg_scale=7, 
-    width=356,
-    height=356, # Generation height, defaults to 512 if not included.
+    width=256,
+    height=256, # Generation height, defaults to 512 if not included.
     sampler=generation.SAMPLER_K_DPMPP_2M 
 )
    
