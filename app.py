@@ -18,7 +18,7 @@ st.subheader("Transform Your beautiful selfies to sketchies🤩")
 st.image('mp.jpg' , width=256)
 stripe_js = """<script async
   src="https://js.stripe.com/v3/buy-button.js">
-</script>
+</script>"""
 
 
 #picture = st.camera_input("No need to fret if you don't already have a photo—snap a selfie right away!")
