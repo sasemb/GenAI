@@ -17,9 +17,8 @@ st.image('mp.jpg' , width=256)
 stripe_js = """<script async
   src="https://js.stripe.com/v3/buy-button.js">
 </script>
-
 <stripe-buy-button
-  buy-button-id="{{BUY_BUTTON_ID}}"
+  buy-button-id="buy_btn_1O95l6AdZK0V316xOrbOXyPg"
   publishable-key="{}"
 >
 </stripe-buy-button>
