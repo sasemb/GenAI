@@ -14,7 +14,7 @@ stability_api = client.StabilityInference(
     engine="stable-diffusion-xl-1024-v1-0",
 )
 
-st.set_page_config(page_title="Sketches", page_icon="⭐", layout="centered", initial_sidebar_state="collapsed")
+st.set_page_config(page_title="Sketches", page_icon=":)", layout="centered", initial_sidebar_state="collapsed")
 
 st.title("It's time for transformation.")
 image = st.file_uploader("Upload your image", type=['png', 'jpeg', 'jpg'])
@@ -34,7 +34,7 @@ if image is not None:
     # bottom = (height + 512) / 2
     # cropped_image = img.crop((left, top, right, bottom))
     img1 = img1.resize((256, 256))
-    answers = stability_api.generate("Upload a real personality image, and use the Stable Diffusion Model to transform it into a highly detailed and realistic sketch. The sketch should capture the essence and character of the person in the uploaded image while maintaining a strong artistic quality. The final output should resemble a hand-drawn portrait with shading, texture, and fine details. Please prioritize creating a black and white sketch, but consider offering an option to adjust the level of stylization or introduce subtle color accents if desired. The output should be of the highest possible quality",
+    answers = stability_api.generate("Convert the uploaded image of a person into a realistic pencil drawing sketch with a strong emphasis on capturing the facial features accurately. Ensure that the sketch highlights the key facial elements such as the eyes, nose, mouth, and overall facial structure. Pay attention to shading and details to create a lifelike pencil sketch. Please provide a high-quality sketch with attention to fine lines, shading, and proportions. The output should maintain the likeness of the original photograph while simulating a hand-drawn pencil sketch effect. Use your artistic judgment to create a visually appealing sketch.",
     init_image=img1, 
     start_schedule=0.6, 
     seed=12345,
