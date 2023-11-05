@@ -14,7 +14,7 @@ stability_api = client.StabilityInference(
     engine="stable-diffusion-xl-1024-v1-0",
 )
 
-st.set_page_config(page_title="Pixar Star", page_icon="⭐", layout="centered", initial_sidebar_state="collapsed")
+st.set_page_config(page_title="Sketches", page_icon="⭐", layout="centered", initial_sidebar_state="collapsed")
 
 st.title("It's time for transformation.")
 image = st.file_uploader("Upload your image", type=['png', 'jpeg', 'jpg'])
