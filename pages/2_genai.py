@@ -46,11 +46,7 @@ if image is not None:
     )
     for resp in answers:
             for artifact in resp.artifacts:
-                if artifact.finish_reason == generation.FILTER:
-                    warnings.warn(
-                        "Your request activated the API's safety filters and could not be processed."
-                        "Please modify the prompt and try again.")
-                if artifact.type == generation.ARTIFACT_IMAGE:
+               if artifact.type == generation.ARTIFACT_IMAGE:
                     img2 = Image.open(io.BytesIO(artifact.binary)) # Set our resulting initial image generation as 'img2' to avoid overwriting our previous 'img' generation.
                     # st.image(img2, width=256)
                     image_comparison(
@@ -64,3 +60,10 @@ if image is not None:
                         make_responsive=True,
                         in_memory=True,
                     )
+                    st.download_button(
+                        label="Download the generated image",
+                        data=img2,
+                        file_name="result.png",
+                        mime="image/png"
+                    )
+                   
