@@ -19,6 +19,10 @@ st.set_page_config(page_title="Sketches", page_icon="⭐", layout="centered", in
 st.title("It's time for transformation.")
 image = st.file_uploader("Upload your image", type=['png', 'jpeg', 'jpg'])
 
+st.text("Got no picture? Don't worry , Strike a pose and let's selfie")
+
+image = st.camera_input("Take a picture")
+
 if image is not None:
     # Open the image using Pillow
     img1 = Image.open(image)
