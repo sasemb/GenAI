@@ -34,7 +34,7 @@ time.sleep(15)
 if image is not None:
     img1 = Image.open(image)
     img1 = img1.resize((256, 256))
-    answers = stability_api.generate("Upload a real personality image, and use the Stable Diffusion Model to transform it into a highly detailed and realistic sketch. The sketch should capture the essence and character of the person in the uploaded image while maintaining a strong artistic quality. The final output should resemble a hand-drawn portrait with shading, texture, and fine details. Please prioritize creating a black and white sketch, but consider offering an option to adjust the level of stylization or introduce subtle color accents if desired. The output should be of the highest possible quality",
+    answers = stability_api.generate("Transform the image into a stable diffusion black and white sketch with a focus on maintaining image stability and enhancing the sketch-like quality. Emphasize contrast and fine details while preserving the overall integrity of the original image. Ensure that the output resembles a high-quality black and white pencil sketch with smooth transitions and accurate representation of the original scene. Pay particular attention to achieving a stable diffusion effect, resulting in a visually appealing and realistic black and white sketch.",
         init_image=img1, 
         start_schedule=0.6, 
         seed=12345,
