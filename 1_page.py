@@ -20,7 +20,7 @@ stripe_js = """<script async
 
 <stripe-buy-button
   buy-button-id="buy_btn_1O6spGAWMFUrkCpQokDCuxQR"
-  publishable-key="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"
+  publishable-key="test"
 >
 </stripe-buy-button>
 """
