@@ -14,4 +14,4 @@ st.set_page_config(
     }
 )
 st.title('From Selfie to Sketchie 🤩')
-st.subheader("Transform Your beautiful selfies to sketchies ")
+st.subheader("Transform Your beautiful selfies to sketchies.. ")
