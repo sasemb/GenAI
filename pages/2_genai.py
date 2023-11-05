@@ -29,18 +29,9 @@ if option == "Upload":
 elif option == "Selfie":
     st.text("Got no picture? Don't worry , Strike a pose and let's selfie")
     image = st.camera_input("Take a picture")
-if image is not None:
-    # Open the image using Pillow
-    img1 = Image.open(image)
-    # Get the width and height of the image
-    # width, height = img.size
-    # left = (width - 512) / 2
-    # top = (height - 512) / 2
-    # right = (width + 512) / 2
-    # bottom = (height + 512) / 2
-    # cropped_image = img.crop((left, top, right, bottom))
-    img1 = img1.resize((256, 256))
-    answers = stability_api.generate("Convert the uploaded image of a person into a realistic pencil drawing sketch with a strong emphasis on capturing the facial features accurately. Ensure that the sketch highlights the key facial elements such as the eyes, nose, mouth, and overall facial structure. Pay attention to shading and details to create a lifelike pencil sketch. Please provide a high-quality sketch with attention to fine lines, shading, and proportions. The output should maintain the likeness of the original photograph while simulating a hand-drawn pencil sketch effect. Use your artistic judgment to create a visually appealing sketch.",
+img1 = Image.open(image)
+img1 = img1.resize((256, 256))
+answers = stability_api.generate("Convert the uploaded image of a person into a realistic pencil drawing sketch with a strong emphasis on capturing the facial features accurately. Ensure that the sketch highlights the key facial elements such as the eyes, nose, mouth, and overall facial structure. Pay attention to shading and details to create a lifelike pencil sketch. Please provide a high-quality sketch with attention to fine lines, shading, and proportions. The output should maintain the likeness of the original photograph while simulating a hand-drawn pencil sketch effect. Use your artistic judgment to create a visually appealing sketch.",
     init_image=img1, 
     start_schedule=0.6, 
     seed=12345,
@@ -50,8 +41,7 @@ if image is not None:
     height=256, # Generation height, defaults to 512 if not included.
     sampler=generation.SAMPLER_K_DPMPP_2M 
 )
-   
-    for resp in answers:
+for resp in answers:
         for artifact in resp.artifacts:
             if artifact.finish_reason == generation.FILTER:
                 warnings.warn(
