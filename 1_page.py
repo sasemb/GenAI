@@ -15,8 +15,7 @@ st.set_page_config(
 st.title('From Selfie to :rainbow[Sketchie] ')
 st.subheader("Transform Your beautiful selfies to sketchies🤩")
 st.image('mp.jpg' , width=256)
-hide_pages(["2_genai.py"])
-st.sidebar.success("Select a payment option.")
+hide_pages(["pages/2_genai.py"])
 stripe_js = """<script async
   src="https://js.stripe.com/v3/buy-button.js">
 </script>
