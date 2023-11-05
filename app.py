@@ -26,7 +26,7 @@ stripe_js = """<script async
 >
 </stripe-buy-button>
 """.format(st.secrets["stripe_publishable_key"])
-picture = st.camera_input("No need to fret if you don't already have a photo—snap a selfie right away!")
-if picture:
-    st.image(picture)
+#picture = st.camera_input("No need to fret if you don't already have a photo—snap a selfie right away!")
+#if picture:
+#    st.image(picture)
 components.html(html=stripe_js, height=300)
