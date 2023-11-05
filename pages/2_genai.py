@@ -26,7 +26,7 @@ option = st.selectbox(
 )
 if option == "Upload":
     image = st.file_uploader("Upload your image", type=['png', 'jpeg', 'jpg'])
-else:
+elif option == "Selfie":
     st.text("Got no picture? Don't worry , Strike a pose and let's selfie")
     image = st.camera_input("Take a picture")
 if image is not None:
