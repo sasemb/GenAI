@@ -6,8 +6,7 @@ show_pages(
         Page("2_genai.py", "GenAI"),
     ]
 )
-if not st.session_state.logged_in:
-    hide_pages(["GenAI"])
+hide_pages(["GenAI"])
 st.set_page_config(
   page_title="From Selfie to Sketchie", 
   page_icon="🤩", 
