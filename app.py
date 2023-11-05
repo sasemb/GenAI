@@ -16,3 +16,6 @@ st.set_page_config(
 st.title('From Selfie to :rainbow[Sketchie] ')
 st.subheader("Transform Your beautiful selfies to sketchies 🤩")
 st.image('mp.jpg' , width=256)
+picture = st.camera_input("No need to fret if you don't already have a photo—snap a selfie right away!")
+if picture:
+    st.image(picture)
