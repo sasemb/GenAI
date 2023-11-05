@@ -5,7 +5,7 @@ st.set_page_config(
   page_title="From Selfie to Sketchie", 
   page_icon="🤩", 
   layout="centered", 
-  initial_sidebar_state="collapsed"
+  initial_sidebar_state="collapsed",
   menu_items={
         'Get Help': 'https://github.com/sasemb',
         'Report a bug': "https://github.com/sasemb",
