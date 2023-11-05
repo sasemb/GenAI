@@ -13,6 +13,6 @@ st.set_page_config(
         'About': "# Cool app to transform your selfies into sketchies!"
     }
 )
-st.title('From Selfie to :blue[Sketchie] 🤩')
+st.title('From Selfie to :rainbow[Sketchie] 🤩')
 st.subheader("Transform Your beautiful selfies to sketchies :sunglasses:")
 st.image('mp.jpg' , width=256)
