@@ -1,6 +1,6 @@
 import streamlit as st
 import streamlit.components.v1 as components
-from st_pages import hide_pages
+#from st_pages import hide_pages
 st.set_page_config(
   page_title="From Selfie to Sketchie", 
   page_icon="🤩", 
@@ -15,9 +15,8 @@ st.set_page_config(
 st.title('From Selfie to :rainbow[Sketchie] ')
 st.subheader("Transform Your beautiful selfies to sketchies🤩")
 st.image('mp.jpg' , width=256)
-hide_pages(["pages/2_genai"])
-#st.sidebar.markdown(f"## 2_genai")
-#st.sidebar.markdown("This page is hidden.")
+#hide_pages(["pages/2_genai"])
+st.sidebar.success("Select a payment option.")
 stripe_js = """<script async
   src="https://js.stripe.com/v3/buy-button.js">
 </script>
