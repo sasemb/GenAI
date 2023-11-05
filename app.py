@@ -15,4 +15,4 @@ st.set_page_config(
 )
 st.title('From Selfie to Sketchie 🤩')
 st.subheader("Transform Your beautiful selfies to sketchies")
-st.image('mp.jpg')
+st.image('mp.jpg' , width=256)
