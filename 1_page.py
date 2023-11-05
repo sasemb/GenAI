@@ -19,7 +19,7 @@ st.set_page_config(
 )
 st.title('From Selfie to :rainbow[Soccer] Sketchie ')
 st.subheader("Unleash Your Inner Football Star 🌟")
-st.image('mp.jpg' , width=256)
+st.image('iker.png' , width=256)
 stripe_js = """<script async
   src="https://js.stripe.com/v3/buy-button.js">
 </script>
