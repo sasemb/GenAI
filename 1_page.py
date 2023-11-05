@@ -19,11 +19,11 @@ stripe_js = """<script async
 </script>
 
 <stripe-buy-button
-  buy-button-id='{{BUY_BUTTON_ID}}'
-  publishable-key='test'
+  buy-button-id="{{BUY_BUTTON_ID}}"
+  publishable-key="{}"
 >
 </stripe-buy-button>
-"""
+""".format(st.secrets["publishable_key"])
 
 
 #picture = st.camera_input("No need to fret if you don't already have a photo—snap a selfie right away!")
