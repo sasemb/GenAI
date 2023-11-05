@@ -34,7 +34,7 @@ time.sleep(15)
 if image is not None:
     img1 = Image.open(image)
     img1 = img1.resize((256, 256))
-    answers = stability_api.generate("Analyze the uploaded picture and determine the football player it most closely resembles. Identify the key facial features, expressions, and other defining characteristics in the image to make this determination. Consider a wide range of football players from different teams, eras, and positions. Provide a clear and concise answer, specifying the name of the football player that best matches the uploaded image, along with a brief explanation of the resemblance, including notable features or qualities that contribute to the match",
+    answers = stability_api.generate("Convert given image into most resembling famous football players , HD , Clear resolution",
         init_image=img1, 
         start_schedule=0.6, 
         seed=12345,
