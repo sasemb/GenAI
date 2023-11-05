@@ -17,8 +17,8 @@ st.set_page_config(
         'About': "# Cool app to transform your selfies into sketchies!"
     }
 )
-st.title('From Selfie to :rainbow[Sketchie] ')
-st.subheader("Discover which 'Friends' movie character you'll become🤩")
+st.title('From Selfie to :rainbow[Soccer] Sketchie ')
+st.subheader("Unleash Your Inner Football Star 🌟")
 st.image('mp.jpg' , width=256)
 stripe_js = """<script async
   src="https://js.stripe.com/v3/buy-button.js">
