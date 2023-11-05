@@ -1,3 +1,7 @@
 [[pages]]
-path = "pages/2_genai.py"
+path = "2_genai.py"
 name = "GenAI"
+
+[[pages]]
+path = "1_page.py"
+name = "Payment"
