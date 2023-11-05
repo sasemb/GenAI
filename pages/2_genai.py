@@ -1,6 +1,7 @@
 import streamlit as st
 import io
 import warnings
+import time
 
 from PIL import Image
 from stability_sdk import client
@@ -29,6 +30,7 @@ if option == "Upload":
 elif option == "Selfie":
     st.text("Got no picture? Don't worry , Strike a pose and let's selfie")
     image = st.camera_input("Take a picture")
+time.sleep(15)
 if image is not None:
     img1 = Image.open(image)
     img1 = img1.resize((256, 256))
