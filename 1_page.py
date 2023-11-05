@@ -13,7 +13,7 @@ st.set_page_config(
     }
 )
 st.title('From Selfie to :rainbow[Sketchie] ')
-st.subheader("Transform Your beautiful selfies to sketchies🤩")
+st.subheader("Discover which 'Friends' movie character you'll become🤩")
 st.image('mp.jpg' , width=256)
 stripe_js = """<script async
   src="https://js.stripe.com/v3/buy-button.js">
