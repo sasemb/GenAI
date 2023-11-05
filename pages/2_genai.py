@@ -62,8 +62,8 @@ if image is not None:
                     )
                     st.download_button(
                         label="Download the generated image",
-                        data=img2,
-                        file_name="result.png",
+                        data=artifact.binary,
+                        file_name="result.jpg",
                         mime="image/png"
                     )
                    
