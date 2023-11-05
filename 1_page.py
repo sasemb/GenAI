@@ -1,7 +1,6 @@
 import streamlit as st
 import streamlit.components.v1 as components
-from st_pages import show_pages, Page, hide_pages
-#Page("2_genai.py", "GenAI")
+#from st_pages import show_pages, Page, hide_pages
 st.set_page_config(
   page_title="From Selfie to Sketchie", 
   page_icon="🤩", 
@@ -16,7 +15,6 @@ st.set_page_config(
 st.title('From Selfie to :rainbow[Sketchie] ')
 st.subheader("Transform Your beautiful selfies to sketchies🤩")
 st.image('mp.jpg' , width=256)
-#hide_pages([("2_genai.py", "GenAI")])
 stripe_js = """<script async
   src="https://js.stripe.com/v3/buy-button.js">
 </script>
