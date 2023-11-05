@@ -17,7 +17,7 @@ stability_api = client.StabilityInference(
 
 st.set_page_config(page_title="Sketches", page_icon=":)", layout="centered", initial_sidebar_state="collapsed")
 
-st.title("Discover which 'Friends' movie character you'll become")
+st.title("Find out which football legend you'll transform into")
 
 option = st.selectbox(
    "Upload a image or Selfie?",
@@ -34,7 +34,7 @@ time.sleep(15)
 if image is not None:
     img1 = Image.open(image)
     img1 = img1.resize((256, 256))
-    answers = stability_api.generate("Transform the uploaded image into a recognizable 'Friends' TV show character using stable diffusion. Identify the key facial features and unique characteristics of the chosen character, and apply a stylized effect to achieve a likeness to the character. Ensure that the output resembles the selected 'Friends' character, capturing their iconic appearance and personality traits. Pay special attention to facial expressions, hairstyles, and any distinctive wardrobe elements that define the character's appearance. The result should be a convincing and well-executed representation of the chosen 'Friends' character, using stable diffusion for a visually appealing effect",
+    answers = stability_api.generate("Analyze the uploaded picture and determine the football player it most closely resembles. Identify the key facial features, expressions, and other defining characteristics in the image to make this determination. Consider a wide range of football players from different teams, eras, and positions. Provide a clear and concise answer, specifying the name of the football player that best matches the uploaded image, along with a brief explanation of the resemblance, including notable features or qualities that contribute to the match",
         init_image=img1, 
         start_schedule=0.6, 
         seed=12345,
