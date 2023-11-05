@@ -4,7 +4,7 @@ from streamlit.source_util import _on_pages_changed, get_pages
 from pathlib import Path
 #from st_pages import show_pages, Page, hide_pages
 DEFAULT_PAGE = "1_page.py"
-current_pages = "2_genai.py"
+current_pages = "pages/2_genai.py"
 current_pages.clear()
 st.set_page_config(
   page_title="From Selfie to Sketchie", 
