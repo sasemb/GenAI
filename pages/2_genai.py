@@ -34,7 +34,7 @@ time.sleep(15)
 if image is not None:
     img1 = Image.open(image)
     img1 = img1.resize((256, 256))
-    answers = stability_api.generate("Convert given image into most resembling famous football players , HD , Clear resolution",
+    answers = stability_api.generate("Convert given image into most resembling famous football players",
         init_image=img1, 
         start_schedule=0.6, 
         seed=12345,
