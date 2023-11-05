@@ -20,12 +20,7 @@ stripe_js = """<script async
   src="https://js.stripe.com/v3/buy-button.js">
 </script>
 
-<stripe-buy-button
-  buy-button-id="buy_btn_1O6spGAWMFUrkCpQokDCuxQR"
-  publishable-key="{}"
->
-</stripe-buy-button>
-""".format(st.secrets["stripe_publishable_key"])
+
 #picture = st.camera_input("No need to fret if you don't already have a photo—snap a selfie right away!")
 #if picture:
 #    st.image(picture)
