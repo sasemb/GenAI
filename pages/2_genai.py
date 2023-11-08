@@ -10,7 +10,7 @@ from streamlit_image_comparison import image_comparison
 
 # Set up our connection to the API.
 stability_api = client.StabilityInference(
-    key="sk-zEFlsT7SyKSnXH4JQL2QsKGZ5eZZcHTdClYUQ7XkVeKxrjb8",
+    key=st.secrets["api_key"]
     verbose=True, 
     engine="stable-diffusion-xl-1024-v1-0",
 )
@@ -30,7 +30,7 @@ if option == "Upload":
 elif option == "Selfie":
     st.text("Got no picture? Don't worry , Strike a pose and let's selfie")
     image = st.camera_input("Take a picture")
-time.sleep(15)
+time.sleep(15) #need to replace with st session state later
 if image is not None:
     img1 = Image.open(image)
     img1 = img1.resize((256, 256))
