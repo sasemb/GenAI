@@ -19,18 +19,17 @@ st.set_page_config(page_title="Sketches", page_icon=":)", layout="centered", ini
 
 st.title("Find out which football legend you'll transform into")
 
-option = st.selectbox(
-   "Upload a image or Selfie?",
-   ("Upload", "Selfie"),
-   index=None,
+#option = st.selectbox(
+#   "Upload a image or Selfie?",
+#   ("Upload", "Selfie"),
+#   index=None,
    
-)
-if option == "Upload":
-    image = st.file_uploader("Upload your image", type=['png', 'jpeg', 'jpg'])
-elif option == "Selfie":
-    st.text("Got no picture? Don't worry , Strike a pose and let's selfie")
-    image = st.camera_input("Take a picture")
-time.sleep(15) #need to replace with st session state later
+#)
+image = st.file_uploader("Upload your image", type=['png', 'jpeg', 'jpg'])
+#elif option == "Selfie":
+#    st.text("Got no picture? Don't worry , Strike a pose and let's selfie")
+#    image = st.camera_input("Take a picture")
+#time.sleep(15) #need to replace with st session state later
 if image is not None:
     img1 = Image.open(image)
     img1 = img1.resize((256, 256))
