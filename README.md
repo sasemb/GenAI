@@ -1,6 +1,6 @@
 # From Selfie to Sketchie
 
-Welcome to the "From Selfie to Sketchie with GAN" Streamlit web application. This app allows you to transform your selfies into artistic sketches using a Stable diffusion model (stable-diffusion-xl-1024-v1-0) .
+Welcome to the "From Selfie to Sketchie" Streamlit web application. This app allows you to transform your selfies into artistic sketches using a Stable diffusion model (stable-diffusion-xl-1024-v1-0) .
 
 
 
