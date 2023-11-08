@@ -10,7 +10,7 @@ from streamlit_image_comparison import image_comparison
 
 # Set up our connection to the API.
 stability_api = client.StabilityInference(
-    key=st.secrets["api_key"]
+    key=st.secrets["api_key"],
     verbose=True, 
     engine="stable-diffusion-xl-1024-v1-0",
 )
