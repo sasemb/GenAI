@@ -36,8 +36,7 @@ if st.session_state['Captcha'].lower() == capta2_text.lower().strip():
     st.write("Captcha verified")
     submit_button = st.button("Sign In")
     if submit_button:
--   # Calculate SECRET_HASH
-      message = email + st.secrets.APP_CLIENT_ID
+-     message = email + st.secrets.APP_CLIENT_ID
       key = st.secrets.APP_CLIENT_SECRET.encode('utf-8')
       msg = message.encode('utf-8')
       secret_hash = base64.b64encode(hmac.new(key, msg, digestmod=hashlib.sha256).digest()).decode()
