@@ -27,7 +27,9 @@ image = ImageCaptcha(width=width, height=height)
 data = image.generate(''.join(random.choices(string.ascii_uppercase + string.digits, k=length_captcha)))
 col1.image(data)
 capta2_text = col2.text_area('Enter captcha text', height=30)
-submit_button = st.button("Sign In")
+capta2_text= capta2_text.replace(" ", "")
+if data == capta2_text:
+    submit_button = st.button("Sign In")
 st.markdown(f"""Not a member?
     <a href="{st.secrets.APP_URI}/Sign%20Up" target = "_self"> 
         Sign Up
