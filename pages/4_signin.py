@@ -2,6 +2,7 @@ import streamlit as st
 import boto3
 import hashlib
 import hmac
+import time
 import base64
 from st_pages import Page, show_pages, hide_pages
 from captcha.image import ImageCaptcha
@@ -28,6 +29,7 @@ data = image.generate(''.join(random.choices(string.ascii_uppercase + string.dig
 col1.image(data)
 capta2_text = col2.text_area('Enter captcha text', height=30)
 capta2_text= capta2_text.replace(" ", "")
+time.sleep(15)
 if data == capta2_text:
     submit_button = st.button("Sign In")
 st.markdown(f"""Not a member?
