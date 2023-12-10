@@ -4,6 +4,13 @@ import hashlib
 import hmac
 import base64
 from st_pages import Page, show_pages, hide_pages
+from captcha.image import ImageCaptcha
+import random, string
+
+#captcha values
+length_captcha = 4
+width = 100
+height = 80
 
 
 st.set_page_config(page_title="Pixar Star", page_icon="⭐", layout="centered", initial_sidebar_state="collapsed")
@@ -15,6 +22,11 @@ client = boto3.client('cognito-idp', region_name=st.secrets.region_name)
 st.title("Sign In")
 email = st.text_input("Email").lower()
 password = st.text_input("Password", type="password")
+col1, col2 = st.columns(2)
+image = ImageCaptcha(width=width, height=height)
+data = image.generate(st.session_state['Captcha'])
+col1.image(data)
+capta2_text = col2.text_area('Enter captcha text', height=30)
 submit_button = st.button("Sign In")
 st.markdown(f"""Not a member?
     <a href="{st.secrets.APP_URI}/Sign%20Up" target = "_self"> 
