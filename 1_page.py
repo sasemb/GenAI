@@ -1,41 +1,77 @@
-# Import necessary libraries
+#signup code
 import streamlit as st
-import streamlit.components.v1 as components
-from streamlit.source_util import _on_pages_changed, get_pages
-from pathlib import Path
+import boto3
+import hashlib
+import hmac
+import base64
+from st_pages import hide_pages
 
-# Set page configuration options
-st.set_page_config(
-  page_title="From Selfie to Sketchie",  # Set the page title
-  page_icon="🤩",  # Set a page icon
-  layout="centered",  # Center the content on the page
-  initial_sidebar_state="collapsed",  # Start with the sidebar collapsed
-  menu_items={
-        'Get Help': 'https://github.com/sasemb',  # Add a "Get Help" link to the menu
-        'Report a bug': "https://github.com/sasemb",  # Add a "Report a bug" link to the menu
-        'About': "# Cool app to transform your selfies into sketchies!"  # Add an "About" section to the menu
-    }
-)
+st.set_page_config(page_title="Pixar Star", page_icon="⭐", layout="centered", initial_sidebar_state="collapsed")
+hide_pages(["Payment", "Create"])
 
-# Set the main title of the application
-st.title('From Selfie to :rainbow[Soccer] Sketchie ')
+# Initialize the Cognito client
+client = boto3.client('cognito-idp', region_name=st.secrets.region_name)
 
-# Set a subheader for additional information
-st.subheader("Unleash Your Inner Football Star 🌟")
+# Initialization state variables
+if 'email' not in st.session_state:
+    st.session_state['email'] = ''
+if 'secret_hash' not in st.session_state:
+    st.session_state['secret_hash'] = ''
+if 'confirm_code' not in st.session_state:
+    st.session_state['confirm_code'] = ''
 
-# Display an image
-st.image('iker.png' , width=256)
+# Create a Streamlit sign-up form
+st.title("Sign Up")
+email = st.text_input("Email").lower()
+password = st.text_input("Password", type="password")
+confirm_password = st.text_input("Confirm Password", type="password")
+submit_button = st.button("Sign Up")
 
-# Create HTML for a Stripe payment button
-stripe_js = """<script async
-  src="https://js.stripe.com/v3/buy-button.js">
-</script>
-<stripe-buy-button
-  buy-button-id="buy_btn_1O95l6AdZK0V316xOrbOXyPg"
-  publishable-key="{}"
->
-</stripe-buy-button>
-""".format(st.secrets["publishable_key"])
+# Calculate SECRET_HASH
+message = email + st.secrets.APP_CLIENT_ID
+key = st.secrets.APP_CLIENT_SECRET.encode('utf-8')
+msg = message.encode('utf-8')
+secret_hash = base64.b64encode(hmac.new(key, msg, digestmod=hashlib.sha256).digest()).decode()
+st.session_state['secret_hash'] = secret_hash
+st.session_state['email'] = email
 
-# Render the HTML with the Stripe payment button
-components.html(html=stripe_js, height=300)
+if submit_button:
+    if password != confirm_password:
+        st.error("Passwords do not match")
+    else:
+        try:
+            response = client.sign_up(
+                ClientId=st.secrets.APP_CLIENT_ID,
+                Username=st.session_state['email'],
+                Password=password,
+                SecretHash=secret_hash,
+            )
+            if response['ResponseMetadata']['HTTPStatusCode'] == 200:
+                st.info("Please check your email for the confirmation code.")
+        except Exception as e:
+            st.error("An error occurred during sign-up.")
+            st.error(str(e))
+
+confirm_code = st.text_input("Confirmation Code")
+confirm_button = st.button("Confirm")
+st.session_state['confirm_code'] = confirm_code
+if confirm_button:
+    # st.write("Confirm Button clicked!")
+    # st.write(st.session_state['confirm_code'])
+    # st.write(st.session_state['email'])
+    try:
+        response = client.confirm_sign_up(
+            ClientId=st.secrets.APP_CLIENT_ID,
+            Username=st.session_state['email'],
+            ConfirmationCode=st.session_state['confirm_code'],
+            SecretHash=st.session_state['secret_hash']
+        )
+        # st.info(response)
+        if response['ResponseMetadata']['HTTPStatusCode'] == 200:
+            # st.success("User confirmed successfully! Sign in")
+            st.markdown(f"""User confirmed successfully!
+            <a href="{st.secrets.APP_URI}" target = "_self"> 
+            Sign in </a>""", unsafe_allow_html=True)
+    except Exception as e:
+        st.error("An error occurred during confirmation.")
+        st.error(str(e))
