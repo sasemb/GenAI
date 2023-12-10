@@ -6,4 +6,4 @@ requests==2.31.0
 stability-sdk==0.8.4
 streamlit-image-comparison==0.0.4
 streamlit-lottie==0.0.5z
-boto3==1.28.84
+boto3==1.33.11
