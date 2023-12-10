@@ -35,20 +35,13 @@ capta2_text= capta2_text.replace(" ", "")
 if st.session_state['Captcha'].lower() == capta2_text.lower().strip():
     st.write("Captcha verified")
     submit_button = st.button("Sign In")
-st.markdown(f"""Not a member?
-    <a href="{st.secrets.APP_URI}/Sign%20Up" target = "_self"> 
-        Sign Up
-    </a>
-""", unsafe_allow_html=True)
-
-# Calculate SECRET_HASH
-message = email + st.secrets.APP_CLIENT_ID
-key = st.secrets.APP_CLIENT_SECRET.encode('utf-8')
-msg = message.encode('utf-8')
-secret_hash = base64.b64encode(hmac.new(key, msg, digestmod=hashlib.sha256).digest()).decode()
-
-if submit_button:
-    try:
+    if submit_button:
+-   # Calculate SECRET_HASH
+      message = email + st.secrets.APP_CLIENT_ID
+      key = st.secrets.APP_CLIENT_SECRET.encode('utf-8')
+      msg = message.encode('utf-8')
+      secret_hash = base64.b64encode(hmac.new(key, msg, digestmod=hashlib.sha256).digest()).decode()
+      try:
         response = client.initiate_auth(
             ClientId=st.secrets.APP_CLIENT_ID,
             AuthFlow='USER_PASSWORD_AUTH',
@@ -63,8 +56,15 @@ if submit_button:
         access_token = response['AuthenticationResult']['AccessToken']
         refresh_token = response['AuthenticationResult']['RefreshToken']
         st.session_state['token'] = access_token
-    except client.exceptions.NotAuthorizedException:
+      except client.exceptions.NotAuthorizedException:
         st.error("Incorrect user or password. Do you need to sign up?")
-    except Exception as e:
+      except Exception as e:
         st.error("An error occurred during authentication.")
         st.error(str(e))
+st.markdown(f"""Not a member?
+    <a href="{st.secrets.APP_URI}/Sign%20Up" target = "_self"> 
+        Sign Up
+    </a>
+""", unsafe_allow_html=True)
+
+
