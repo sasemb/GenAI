@@ -24,13 +24,16 @@ st.title("Sign In")
 email = st.text_input("Email").lower()
 password = st.text_input("Password", type="password")
 col1, col2 = st.columns(2)
+if 'Captcha' not in st.session_state:
+   st.session_state['Captcha'] = ''.join(random.choices(string.ascii_uppercase + string.digits, k=length_captcha))
+print("the captcha is: ", st.session_state['Captcha'])
 image = ImageCaptcha(width=width, height=height)
-data = image.generate(''.join(random.choices(string.ascii_uppercase + string.digits, k=length_captcha)))
+data = image.generate(st.session_state['Captcha'])
 col1.image(data)
 capta2_text = col2.text_area('Enter captcha text', height=30)
 capta2_text= capta2_text.replace(" ", "")
-time.sleep(15)
-if data == capta2_text:
+if st.session_state['Captcha'].lower() == capta2_text.lower().strip():
+    st.write("Captcha verified")
     submit_button = st.button("Sign In")
 st.markdown(f"""Not a member?
     <a href="{st.secrets.APP_URI}/Sign%20Up" target = "_self"> 
